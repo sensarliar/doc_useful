@@ -1,0 +1,23 @@
+Get:1 http://cn.archive.ubuntu.com/ubuntu/ precise-updates/universe python-gps amd64 3.4-2ubuntu0.1 [67.6 kB]
+Get:2 http://cn.archive.ubuntu.com/ubuntu/ precise-updates/universe gpsd-clients amd64 3.4-2ubuntu0.1 [104 kB]
+
+firt reconfigure  ifconfig iddr 192.168.1.2:
+ifconfig 192.168.1.2
+
+ stty -F /dev/ttyUSB0 ispeed 115200 &&cat </dev/ttyUSB0
+ gpsd -D 5 -N -n /dev/ttyUSB0
+
+
+ifconfig 192.168.1.2
+kill gps_test1xxx
+ stty -F /dev/ttyO1 ispeed 115200 &&cat </dev/ttyO1
+ ./gpsd -D 5 -N -n /dev/ttyO1 -S 2999 -G
+
+
+
+./cgps
+./cgps: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+root@am335x-evm:~/gpsd# gpsd:WARN: date more than a year in the future!
+
+
+cgps: no gpsd running or network error: -6, can't connect to host/port pair
